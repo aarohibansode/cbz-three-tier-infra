@@ -1,6 +1,6 @@
 # Create an S3 bucket
 resource "aws_s3_bucket" "cbz_bucket" {
-  bucket = "cbz-frontend-project-bux" # Replace with a globally unique bucket name
+  bucket = "cbz-frontend-project-bux-ankita" # Replace with a globally unique bucket name
 
   # Enable static website hosting
   website {
@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "cbz_bucket" {
   }
 
   tags = {
-    Name        = "StaticWebsiteBucket"
+    Name        = "StaticWebsiteBucketanki"
     env = "dev"
   }
 }
@@ -42,7 +42,7 @@ resource "aws_s3_bucket_policy" "static_website_policy" {
 }
 
 # Output the bucket's website endpoint
-output "website_endpoint" {
+output "static_site_url" {
   value       = aws_s3_bucket.cbz_bucket.website_endpoint
   description = "The URL to access the static website"
 }
